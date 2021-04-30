@@ -1,17 +1,17 @@
 <configuration>
 <!--    Standard Logging-->
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-<!--    Custom Logging-->
 <!--    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">-->
-<!--        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">-->
-<!--            <layout class="com.jimmy.coding.layout.JimmyLayout" />-->
+<!--        <encoder>-->
+<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
 <!--        </encoder>-->
 <!--    </appender>-->
+
+    Custom Logging
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="com.jimmy.coding.layout.JimmyCustomLoggingLayout" />
+        </encoder>
+    </appender>
 
     <property name="LOG_DIR" value="/tmp/jimmyApp2" />
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
@@ -23,6 +23,12 @@
     </appender>
 
     <logger name="com.jimmy.coding.deeper" level="INFO"/>
+
+    <!--Spark logging related-->
+    <logger name="org.apache.spark" level="ERROR"/>
+    <logger name="org.spark_project" level="ERROR"/>
+    <logger name="org.apache.hadoop" level="ERROR"/>
+    <logger name="io.netty" level="ERROR"/>
 
     <root level="debug">
         <appender-ref ref="STDOUT" />
