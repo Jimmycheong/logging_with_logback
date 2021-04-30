@@ -45,6 +45,7 @@ object Lesson7_UpdatingSparkLogging {
   <logger name="io.netty" level="ERROR"/>
   ```
 
+  NOTE: This doesn't allow you to use logback when performing a spark submit. Check link for more details.
 
   References
   How to turn off log4j and use logback: https://stackoverflow.com/a/45479379

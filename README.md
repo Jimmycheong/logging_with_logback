@@ -20,16 +20,18 @@ For the following `logback.xml` file:
 ```
 
 ## Appenders
-References: http://logback.qos.ch/manual/appenders.html
 
 - Appenders are responsible for outputting log events.
 - Implements the `ch.qos.logback.core.Appender` interface
 - The actual formatting of the logs are delegated to a `Layout` or an `Encoder` object
 
 ## Layout
-Custom layouts can allow you to be more granular
+Custom layouts can allow you to be more granular. Implement the `LayoutBase[ILoggingEvent]` interface and override the 
+`doLayout()` method to create own custom logging layout.
 
-Good references:
+## References
 - https://logback.qos.ch/manual/layouts.html#writingYourOwnLayout 
 - https://www.baeldung.com/logback
 - https://stackify.com/compare-java-logging-frameworks/
+- http://logback.qos.ch/manual/appenders.html
+- https://stackoverflow.com/a/45479379 (Spark with Logback)
